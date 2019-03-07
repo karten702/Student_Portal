@@ -30,9 +30,6 @@ public class AddPortal extends AppCompatActivity {
             public void onClick(View view) {
                 String titleText = titleTextView.getText().toString();
                 String urlText = urlTextView.getText().toString();
-                titleText = "Test portal";
-                urlText = "https://www.google.com";
-
 
                 if(!TextUtils.isEmpty(titleText) && !TextUtils.isEmpty(urlText) && !TextUtils.equals(urlText, getString(R.string.UrlPrefixText))){
                     PortalObject portalToAdd = new PortalObject(titleText, urlText);

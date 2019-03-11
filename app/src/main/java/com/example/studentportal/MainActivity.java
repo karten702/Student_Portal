@@ -110,12 +110,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     @Override
     public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
         View child = rv.findChildViewUnder(e.getX(), e.getY());
-        int position = rv.getChildAdapterPosition(child);
 
-        if (gestureDetector.onTouchEvent(e)){
-            Intent intent = new Intent(MainActivity.this, web_viewer.class);
-            intent.putExtra(VIEW_PORTAL, portals.get(position));
-            startActivityForResult(intent, ViewPortalCode);
+        if(child != null) {
+            int position = rv.getChildAdapterPosition(child);
+
+            if (gestureDetector.onTouchEvent(e)) {
+                Intent intent = new Intent(MainActivity.this, web_viewer.class);
+                intent.putExtra(VIEW_PORTAL, portals.get(position));
+                startActivityForResult(intent, ViewPortalCode);
+            }
         }
 
         return false;
